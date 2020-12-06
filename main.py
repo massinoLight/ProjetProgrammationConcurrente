@@ -8,8 +8,8 @@ from Couleur import bcolors
 Stock = Queue(10)  # notre pile, qui peut contenir 10 elements max( 0 pour enlever la limite)
 
 #le nombre de producteurs et de consommateurs
-count_producers=3
-count_consumer=10
+count_producers = 3
+count_consumer = 10
 
 items = []
 #liste des comsommateur et des producteurs
@@ -48,6 +48,9 @@ class Producteur(Thread):
     def wait(self, attente):
         time.sleep(attente)
 
+    """
+        La tache  que va exécuter le Thread une fois lancé
+        """
     def run(self):
             ressources = random.randint(1, 10)
             i = 0
@@ -164,7 +167,7 @@ if __name__ == '__main__':
 
     time.sleep(120)
 
-    print(bcolors.FAIL +"##### Fin du black friday #####"+ bcolors.ENDC)
+    print(bcolors.FAIL +"##################### Fin du black friday #################################"+ bcolors.ENDC)
     print("Il nous reste  au final " + str(Stock.qsize()) + " PS5 dans notre stock\n")
     if Stock.qsize()==0:
       print("Nous avons tout vendu  hahahaha")
